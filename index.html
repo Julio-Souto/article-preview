@@ -13,6 +13,11 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
+    :root{
+      --color-title:hsl(217, 19%, 35%);
+      --color-text:hsl(212, 23%, 69%);
+      --color-date:hsl(214, 17%, 51%);
+    }
     *{
       box-sizing: border-box;
     }
@@ -20,67 +25,104 @@
       margin: 0;
       font-family: 'Manrope', sans-serif;
       font-size: 13px;
+      background-color: aliceblue;
+    }
+    .card{
+      display: inline-block;
       max-width: 1400px;
+      background-color: white;
+      border-radius: 5%;
+      margin: auto;
     }
     .main{
+      display: inline-block;
+      vertical-align: top;
+      width: 64%;
+      height: auto;
       padding: 1.5em;
     }
-    span{
-      display: block;
-    }
     .image{
-      float: left;
-      margin-right: 2.5em;
-      height: 300px;
-      width: auto;
+      display: inline-block;
+      vertical-align: top;
+      object-fit: cover;
+      width: 35%;
+      height: 100%;
+      border-top-left-radius: 5%;
+      border-bottom-left-radius: 5%;
     }
     .title{
-      color: hsl(217, 19%, 35%);
+      color: var(--color-title);
     }
     .article-text, .author-date{
-      color: hsl(212, 23%, 69%);
+      color: var(--color-text);
     }
-    .main-footer{
-      display: inline-block;
+    .main-article{
+      margin: 0.5em 0;
+    }
+    footer.main-footer{
       width: 100%;
-      margin: 1em 0;
-    }
-    .author-name{
-      font-weight: bold;
-      color: hsl(217, 19%, 35%);
-    }
-    .author{
-      width: 100px;
+      margin-top: 2em;
     }
     .avatar{
-      float: left;
+      display: inline-block;
+      vertical-align: middle;
       width: 50px;
       height: auto;
       border-radius: 50%;
     }
+    .author{
+      display: inline-block;
+      vertical-align: middle;
+      width: 70%;
+      padding: 0 1em;
+    }
+    .author-name{
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+      color: var(--color-title);
+    }
     .share-item{
+      display: inline-block;
+      vertical-align: middle;
+      max-width: 15%;
       width: 35px;
       height: 35px;
       background-color: hsl(210, 46%, 95%);
       border-radius: 50%;
     }
+    .share-item:hover{
+      background-color: aliceblue;
+    }
     .share{
       position: relative;
-      top: 50%;
+      top: 43%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
     }
     @media only screen and (max-width: 375px) {
       .image{
-        float: none;
+        display: block;
+        max-width: 100%;
         width: 100%;
         height: auto;
+        border-top-right-radius: 5%;
+        border-top-left-radius: 5%;
+        border-bottom-left-radius: 0;
+      }
+      .main{
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .card{
+        max-width: 375px;
+        max-height: none;
       }
     }
   </style>
 </head>
 <body>
-
   <div class="card">
     <img src="images/drawers.jpg" alt="Drawers picture" class="image">
     <div class="main">
@@ -91,11 +133,11 @@
         </h3>
       </header>
       <main class="main-article">
-        <span class="article-text">
+        <p class="article-text">
           Ever been in a room and felt like something was missing? Perhaps
           it felt slightly bare and uninviting. I’ve got some simple tips
           to help you make any room feel complete.
-        </span>
+        </p>
       </main>
       <footer class="main-footer">
         <img src="images/avatar-michelle.jpg" alt="Avatar picture" class="avatar">
