@@ -16,7 +16,7 @@
     :root{
       --color-title:hsl(217, 19%, 35%);
       --color-text:hsl(212, 23%, 69%);
-      --color-date:hsl(214, 17%, 51%);
+      --color-share:hsl(214, 17%, 51%);
     }
     *{
       box-sizing: border-box;
@@ -28,27 +28,30 @@
       background-color: aliceblue;
     }
     .card{
-      display: inline-block;
-      max-width: 1400px;
+      display: flex;
+      max-width: 1440px;
       background-color: white;
-      border-radius: 5%;
+      border-radius: 1em;
       margin: auto;
     }
     .main{
-      display: inline-block;
-      vertical-align: top;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
       width: 64%;
       height: auto;
       padding: 1.5em;
     }
-    .image{
-      display: inline-block;
-      vertical-align: top;
-      object-fit: cover;
+    .img{
       width: 35%;
+    }
+    .image{
+      object-fit: cover;
+      width: 100%;
       height: 100%;
-      border-top-left-radius: 5%;
-      border-bottom-left-radius: 5%;
+      border-top-left-radius: 1em;
+      border-bottom-left-radius: 1em;
     }
     .title{
       color: var(--color-title);
@@ -60,6 +63,7 @@
       margin: 0.5em 0;
     }
     footer.main-footer{
+      position: relative;
       width: 100%;
       margin-top: 2em;
     }
@@ -100,31 +104,88 @@
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
     }
+    .share-content{
+      position: absolute;
+      right: 0;
+      bottom: 100%;
+      display: flex;
+      justify-content: space-around;
+      background-color: var(--color-share);
+      color: var();
+      padding: 1em 0;
+      border-radius: 1em;
+      width: 50%;
+    }
+    .share-flex{
+      display: flex;
+      width: 70%;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .active-state{
+      display: none;
+    }
     @media only screen and (max-width: 375px) {
+      .img{
+        width: 100%;
+      }
       .image{
         display: block;
         max-width: 100%;
         width: 100%;
         height: auto;
-        border-top-right-radius: 5%;
-        border-top-left-radius: 5%;
+        border-top-right-radius: 1em;
+        border-top-left-radius: 1em;
         border-bottom-left-radius: 0;
       }
       .main{
         display: block;
         width: 100%;
         height: auto;
+        padding: 0;
+      }
+      .main-header{
+        padding: 1.5em 1.5em 0 1.5em;
+      }
+      .main-article{
+        padding: 0 1.5em;
+      }
+      .main-footer{
+        padding: 0 1.5em 1.5em 1.5em;
       }
       .card{
+        display: block;
         max-width: 375px;
         max-height: none;
+      }
+      .share-content{
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: space-around;
+        background-color: var(--color-share);
+        padding: 1em 0;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        width: 100%;
+      }
+      .share-flex{
+        display: flex;
+        width: 70%;
+        align-items: center;
+        justify-content: space-around;
+      }
+      .active-state{
+        display: block;
       }
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <img src="images/drawers.jpg" alt="Drawers picture" class="image">
+    <div class="img"><img src="images/drawers.jpg" alt="Drawers picture" class="image"></div>
     <div class="main">
       <header class="main-header">
         <h3 class="title">
@@ -146,8 +207,18 @@
           <time datetime="2020-06-28" class="author-date">28 Jun 2020</time>
         </div>
         <div class="share-item"><img src="images/icon-share.svg" alt="Share icon" class="share"></div>
+        <div class="share-content" style="display: none;">
+          <div class="share-flex">
+            <span class="share-text">S H A R E</span>
+            <img src="images/icon-facebook.svg" alt="Share Facebook" class="share-facebook">
+            <img src="images/icon-pinterest.svg" alt="Share Pinteres" class="share-pinterest">
+            <img src="images/icon-twitter.svg" alt="Share Twitter" class="share-twitter">
+          </div>
+          <div class="share-item active-state"><img src="images/icon-share.svg" alt="Share icon" class="share"></div>
+        </div>
       </footer>
     </div>
+    
   </div>
 </body>
 </html>
